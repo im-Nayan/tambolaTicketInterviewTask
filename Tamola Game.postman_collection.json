@@ -1,0 +1,147 @@
+{
+	"info": {
+		"_postman_id": "71dc1cd6-727e-4f65-8aeb-ae05b713bd1a",
+		"name": "Tamola Game",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26567037"
+	},
+	"item": [
+		{
+			"name": "user signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Fname\":\"nayan\",\r\n    \"Lname\":\"mahato\",\r\n    \"email\":\"nayanmahato19999@gmail.com\",\r\n    \"password\":\"Nayan123\",\r\n    \"confirmpass\":\"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/signUp",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"signUp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user signIn",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"nayanmahato19999@gmail.com\",\r\n    \"password\":\"Nayan123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/signIn",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"signIn"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "genarated_ticket_by_user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyRGF0YSI6eyJfaWQiOiI2NDczMGZlODA4ZGM0NWVjZTRhMzc4YzYiLCJGbmFtZSI6Im5heWFuIiwiTG5hbWUiOiJtYWhhdG8iLCJlbWFpbCI6Im5heWFubWFoYXRvMTk5OTlAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmEkMTAkV2FFMmZxZ1MzTzJTaW5wb1ZUUFZ5dU9lLll5WlAxVVNNSjlxeUhpOUM1QklwQXAyS29pSnkiLCJfX3YiOjB9LCJpYXQiOjE2ODUyNjIzMjEsImV4cCI6MTcxNjc5ODMyMX0.RcckK00U2NGB2PFqjXJ-_K5Cyqg1N4CUJTjJ2LeMAqo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"nayanmahato1999@gmail.com\",\r\n    \"password\":\"Nayan123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/genarated_ticket_by_user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"genarated_ticket_by_user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "all tambolaGame table",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/all_tickets",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"all_tickets"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
