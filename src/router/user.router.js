@@ -12,4 +12,5 @@ userRouter.post('/signUp', userController.signUp);
 userRouter.post('/signIn', userController.signIn);
 
 userRouter.post('/genarated_ticket_by_user', user_login_auth.authntication, userController.genarated_ticket_by_user);
+userRouter.get('/all_tickets', userController.all_tickets);
 module.exports = userRouter;

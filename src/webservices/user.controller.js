@@ -75,32 +75,32 @@ class userController {
 
                 // var generated_ticket = await generate_ticket.ticket(req, res);
                 const generate_tickets = await tambolaGame_model.aggregate([
-                               { $sort:{createdAt:-1} } ,
-                               {$limit:5},
-                               {
-                                $addFields:{
-                                    generated_ticket:{
-                                        $reduce:{
-                                            input:"$generated_ticket",
-                                            initialValue:[],
-                                            in: { $concatArrays: [ "$$value", "$$this" ] }
-                                        }
-                                    }
+                    { $sort: { createdAt: -1 } },
+                    { $limit: 5 },
+                    {
+                        $addFields: {
+                            generated_ticket: {
+                                $reduce: {
+                                    input: "$generated_ticket",
+                                    initialValue: [],
+                                    in: { $concatArrays: ["$$value", "$$this"] }
                                 }
-                               },
-                               {
-                                $project:{
-                                    _id:false,
-                                    generated_ticket:1
-                                }
-                               }
+                            }
+                        }
+                    },
+                    {
+                        $project: {
+                            _id: false,
+                            generated_ticket: 1
+                        }
+                    }
                 ]);
-                let oldTicketData=[]
-                generate_tickets.map(e=>{
+                let oldTicketData = []
+                generate_tickets.map(e => {
                     oldTicketData.push(e.generated_ticket)
                 });
                 // console.log(oldTicketData,'ttttttttttttttt');
-                oldTicketData=oldTicketData.flat();
+                oldTicketData = oldTicketData.flat();
                 // console.log(oldTicketData,'oldTicketData');
                 // console.log(oldTicketData.flat(),'genrateTicket');
                 // console.log(generate_tickets, "generate_tickets");
@@ -122,6 +122,16 @@ class userController {
                     return res.status(400).send({ massage: "create ticket failed", data: {}, status: 400 })
                 }
             }
+
+        } catch (error) {
+            return res.status(400).send({ massage: "somthing want wrong", error: error.massage })
+        }
+
+    }
+    async all_tickets(req, res) {
+        try {
+            const all_tambolaGameTable = await tambolaGame_model.find();
+            return res.status(200).send({ massage: "all tickets", data: all_tambolaGameTable, status: 200 })
 
         } catch (error) {
             return res.status(400).send({ massage: "somthing want wrong", error: error.massage })
